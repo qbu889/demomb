@@ -13,7 +13,6 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-
     @Select("select * from userentity where is_delete = 0")  //查询所有数据
     List<userEntity> findALL();
 
@@ -28,6 +27,5 @@ public interface UserMapper {
 
     @Update("update userentity set is_delete=1 where id = #{id}")
     Integer deletenotreal(Integer id);
-
 
 }
