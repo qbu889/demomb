@@ -17,4 +17,5 @@ public class userEntity {
     private String password;
     private String address;
     private String email;
+    private int is_delete;
 }

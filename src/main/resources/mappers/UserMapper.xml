@@ -14,16 +14,7 @@
         from userentity
         where id = #{id}
     </delete>
-    <!--update(User user)-->
-<!--    <update id="update">-->
-<!--        update userentity-->
-<!--        set id=#{id},-->
-<!--            user=#{user},-->
-<!--            password = #{password},-->
-<!--            address = #{address},-->
-<!--            email=#{email}-->
-<!--        where id = #{id}-->
-<!--    </update>-->
+
     <update id="update">
         update userentity
         <set>
@@ -34,4 +25,13 @@
         </set>
         where id = #{email}
     </update>
+
+    <update id="deletenotreal">
+        update userentity
+        <set>
+            id_delete=1
+        </set>
+        where id = #{id}
+    </update>
+
 </mapper>

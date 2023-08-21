@@ -30,5 +30,21 @@ public class UserService {
         }
     }
 
+    public Integer deletenotreal(Integer id) {
+        //如果id为空，则删除
+        if (id != null){
+            return userMapper.deletenotreal(id);
+        }else{                        //id不为空则是更新
+            return null;
+        }
+    }
+
+    public Integer delete(Integer id) {
+        return userMapper.delete(id);
+    }
+
+
+
+
 }
 

@@ -26,4 +26,17 @@ public class usercontroller {
 
         return userService.save(entity);
     }
+
+    @PostMapping("/deletenotreal/{id}")
+    public Integer deleteNotReal(@PathVariable Integer id) {
+
+        return userService.deletenotreal(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public Integer delete(@PathVariable Integer id) {
+
+        return userService.delete(id);
+    }
+
 }
