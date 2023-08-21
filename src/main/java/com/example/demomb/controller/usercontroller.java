@@ -14,47 +14,16 @@ import java.util.List;
 public class usercontroller {
     @Autowired
     private UserService userService;
-//    @Autowired
-//    private UserService UsersService;
-//
-//    @GetMapping("/")
-//    public List<userEntity> findall() {
-//
-//        return UsersService.findall();
-//    }
 
-//    @PostMapping("/save")
-//    public Integer save(userEntity entity) {
-//
-//        return UsersService.save(entity);
-//    }
+    @GetMapping("/")
+    public List<userEntity> findall() {
 
-
-
-    @PostMapping
-    public Result registerUser(@RequestBody User user){
-        userService.registerUser(user);
-        return Result.ok();
+        return userService.findall();
     }
 
-    @DeleteMapping("{id}")
-    public Result deleteUser(@PathVariable Long id){
-        userService.deleteUser(id);
-        return Result.ok();
-    }
+    @PostMapping("/save")
+    public Integer save(@RequestBody userEntity entity) {
 
-    @PutMapping
-    public Result udpateUser(@RequestBody User user){
-        userService.updateUser(user);
-        return Result.ok();
-    }
-
-    @PostMapping("/list/{pageNum}/{pageSize}")
-    public Result list(@PathVariable Integer pageNum,
-                       @PathVariable Integer pageSize,
-                       @RequestBody User user){
-        List<User> users = userService.listUser(pageNum, pageSize, user);
-        return Result.ok(users);
-
+        return userService.save(entity);
     }
 }

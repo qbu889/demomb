@@ -5,6 +5,7 @@ import com.example.demomb.entity.userEntity;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -12,22 +13,12 @@ import java.util.List;
 public interface UserMapper {
 
 
-//    @Select("select * from userentity")  //查询所有数据
-//    List<userEntity> findALL();
-//
-//    @Insert("INSERT into userentity (username,password,address,email)VALUES(#{username},#{password},#{address},#{email})")
-//    @Insert("INSERT into demo (username,password,address,email)VALUES(#{username},#{password},#{address},#{email})")
-//    Integer save(userEntity entity);
-//
-//
-//    Integer update(userEntity entity);
+    @Select("select * from userentity")  //查询所有数据
+    List<userEntity> findALL();
 
-    //添加
-    void insert(User user);
-    //删除
-    void delete(Long id);
-    //修改
-    void update(User user);
-    //分页条件查询
-    List<User> getPages(User user);
+    @Insert("INSERT into userentity (user,password,address,email)VALUES(#{user},#{password},#{address},#{email})")
+    Integer save(userEntity entity);
+    @Update("update userentity set user=#{user},password=#{password},address=#{address},email=#{email} where id = #{id}")
+    Integer update(userEntity entity);
+
 }
